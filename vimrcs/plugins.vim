@@ -23,6 +23,8 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mileszs/ack.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -163,7 +165,7 @@ endfunction
 " hi default link CocHighlightWrite  CocHighlightText
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
