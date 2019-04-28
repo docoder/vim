@@ -19,12 +19,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" Plug 'sjl/vitality.vim'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mileszs/ack.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -274,3 +275,13 @@ let g:ale_lint_on_enter = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git'
 
+""""""""""""""""""""""""""""""
+" => markdown-preview 
+""""""""""""""""""""""""""""""
+
+let g:mkdp_auto_start = 1
+
+""""""""""""""""""""""""""""""
+" => vim-markdown 
+""""""""""""""""""""""""""""""
+" let vim_markdown_folding_disabled = 1
