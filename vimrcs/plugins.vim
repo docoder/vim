@@ -22,7 +22,6 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/bufexplorer.zip'
 Plug 'mileszs/ack.vim'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -70,7 +69,7 @@ map <leader>nf :NERDTreeFind<cr>
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
 let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
+let g:bufExplorerShowRelativePath=0
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
@@ -284,4 +283,4 @@ let g:mkdp_auto_start = 1
 """"""""""""""""""""""""""""""
 " => vim-markdown 
 """"""""""""""""""""""""""""""
-" let vim_markdown_folding_disabled = 1
+let vim_markdown_folding_disabled = 1
