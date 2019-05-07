@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('$TMUX')
@@ -10,6 +10,16 @@ else
     let &t_SR = "\e[4 q"
     let &t_EI = "\e[2 q"
 endif
+
+set guioptions-=r               "Hide right scrollbar" 
+set guioptions-=L               "Hide left scrollbar"
+set guioptions-=b               "Hide bottom scrollbar"
+set cursorline                  
+set cursorcolumn                
+set langmenu=zh_CN.UTF-8        
+
+" Prevent quitting vim
+cabbrev q <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'close' : 'q')<CR>
 
 inoremap jk <esc>
 
