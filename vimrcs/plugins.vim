@@ -66,22 +66,22 @@ if (empty($TMUX))
   endif
 endif
 
-" if (empty($TMUX))
-"     let g:onedark_terminal_italics = 1
-"     highlight Comment term=italic gui=italic
-"     highlight Conditional term=italic gui=italic
-"     highlight Identifier term=italic gui=italic
-"     highlight Repeat term=italic gui=italic
-"     highlight Statement term=italic gui=italic
-"     highlight Type term=italic gui=italic
-"     highlight htmlItalic term=italic gui=italic
-"     highlight markdownItalic term=italic gui=italic
-" endif
+if (empty($TMUX))
+    let g:onedark_terminal_italics = 1
+endif
 
 let g:onedark_termcolors=16
 let g:airline_theme='onedark'
 syntax on
 colorscheme onedark
+" highlight Comment cterm=italic gui=italic
+" highlight Conditional cterm=italic gui=italic
+" highlight Identifier cterm=italic gui=italic
+" highlight Repeat cterm=italic gui=italic
+" highlight Statement cterm=italic gui=italic
+" highlight Type cterm=italic gui=italic
+" highlight htmlItalic cterm=italic gui=italic
+" highlight markdownItalic cterm=italic gui=italic
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
@@ -222,7 +222,7 @@ endfunction
 
 
 " Highlight symbol under cursor on CursorHold
-if has("gui_running")
+if (empty($TMUX))
     hi default CocHighlightText  guibg=Grey ctermbg=Grey guifg=Black ctermfg=Black
     hi default link CocHighlightRead  CocHighlightText
     hi default link CocHighlightWrite  CocHighlightText
@@ -378,7 +378,7 @@ let g:rainbow_conf = {
 """"""""""""""""""""""""""""""
 "=> tagbar
 """"""""""""""""""""""""""""""
-nmap <leader>ll :TagbarToggle<CR>
+nmap <leader>tt :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 """"""""""""""""""""""""""""""

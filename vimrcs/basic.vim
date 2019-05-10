@@ -14,8 +14,8 @@ endif
 set guioptions-=r               "Hide right scrollbar" 
 set guioptions-=L               "Hide left scrollbar"
 set guioptions-=b               "Hide bottom scrollbar"
-set cursorline                  
-set cursorcolumn                
+" set cursorline                  
+" set cursorcolumn                
 set langmenu=zh_CN.UTF-8        
 
 " Prevent quitting vim
@@ -41,6 +41,8 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
+
+set ttyfast
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -148,7 +150,7 @@ syntax on
 " Enable dark background
 set background=dark
 
-set guifont=DroidSansMono\ Nerd\ Font\ Mono:h18
+set guifont=DankMono\ Nerd\ Font:h18
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -162,10 +164,10 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>:tabclose<cr>gT
