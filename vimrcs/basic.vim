@@ -14,8 +14,8 @@ endif
 set guioptions-=r               "Hide right scrollbar" 
 set guioptions-=L               "Hide left scrollbar"
 set guioptions-=b               "Hide bottom scrollbar"
-" set cursorline                  
-" set cursorcolumn                
+set cursorline                  
+set cursorcolumn                
 set langmenu=zh_CN.UTF-8        
 
 " Prevent quitting vim

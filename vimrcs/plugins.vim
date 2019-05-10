@@ -10,13 +10,15 @@ Plug 'joshdick/onedark.vim' " Theme
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'w0rp/ale' " Asynchronous Lint
-Plug 'scrooloose/nerdtree' " Tree explorer
-Plug 'Xuyuanp/nerdtree-git-plugin' " Tree explorer with git status
+" Plug 'scrooloose/nerdtree' " Tree explorer
+" Plug 'Xuyuanp/nerdtree-git-plugin' " Tree explorer with git status
 Plug 'ryanoasis/vim-devicons' " Tree explorer icon
+Plug 'mhinz/vim-startify' "start screen for Vim
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Tree explorer icon highlight
 Plug 'enricobacis/vim-airline-clock'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-commentary' " gc comment
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
