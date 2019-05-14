@@ -43,6 +43,8 @@ set encoding=utf8
 set fileformats=unix,dos,mac
 
 set ttyfast
+set ignorecase
+set smartcase
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface

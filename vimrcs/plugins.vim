@@ -13,8 +13,8 @@ Plug 'w0rp/ale' " Asynchronous Lint
 " Plug 'scrooloose/nerdtree' " Tree explorer
 " Plug 'Xuyuanp/nerdtree-git-plugin' " Tree explorer with git status
 Plug 'ryanoasis/vim-devicons' " Tree explorer icon
-Plug 'mhinz/vim-startify' "start screen for Vim
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Tree explorer icon highlight
+" Plug 'mhinz/vim-startify' "start screen for Vim
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Tree explorer icon highlight
 Plug 'enricobacis/vim-airline-clock'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
@@ -37,9 +37,7 @@ Plug 'vim-scripts/YankRing.vim' "Maintains a history of previous yanks, changes 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/bufexplorer.zip'
-Plug 'mileszs/ack.vim'
 Plug 'dyng/ctrlsf.vim'                               "search and view tool
 Plug 'plasticboy/vim-markdown'
 " if you have nodejs and yarn
@@ -88,12 +86,12 @@ colorscheme onedark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "right"
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+" let g:NERDTreeShowHidden=1
+" let g:NERDTreeWinPos = "right"
+" let g:NERDTreeWinSize=35
+" map <leader>nn :NERDTreeToggle<cr>
+" map <leader>nb :NERDTreeFromBookmark<Space>
+" map <leader>nf :NERDTreeFind<cr>
 """"""""""""""""""""""""""""""
 " => vim-devicons
 """"""""""""""""""""""""""""""
@@ -111,22 +109,22 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 """""""""""""""""""""""""""""
 " => nerdtree-git-plugin
 """""""""""""""""""""""""""""
-let g:NERDTreeShowGitStatus = 1
-let g:NERDTreeUpdateOnWrite = 1
-let g:NERDTreeGitStatusNodeColorization = 1  "enables colorization
-let g:NERDTreeGitStatusWithFlags = 1  "enables flags, (may be default), required for colorization
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+" let g:NERDTreeShowGitStatus = 1
+" let g:NERDTreeUpdateOnWrite = 1
+" let g:NERDTreeGitStatusNodeColorization = 1  "enables colorization
+" let g:NERDTreeGitStatusWithFlags = 1  "enables flags, (may be default), required for colorization
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
 """"""""""""""""""""""""""""""
@@ -140,41 +138,41 @@ map <leader>o :BufExplorer<cr>
 " => emmet-vim
 """"""""""""""""""""""""""""""
 
-let g:user_emmet_leader_key='<C-z>'
+" let g:user_emmet_leader_key='<C-z>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack searching and cope displaying
 "    requires ack.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the the_silver_searcher if possible (much faster than Ack)
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-endif
+"" Use the the_silver_searcher if possible (much faster than Ack)
+"if executable('ag')
+"  let g:ackprg = 'ag --vimgrep --smart-case'
+"endif
 
-" When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+"" When you press gv you Ack after the selected text
+"vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+"" Open Ack and put the cursor in the right position
+"map <leader>g :Ack 
 
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+"" When you press <leader>r you can search and replace the selected text
+"vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with Ack, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+"" Do :help cope if you are unsure what cope is. It's super useful!
+""
+"" When you search with Ack, display your results in cope by doing:
+""   <leader>cc
+""
+"" To go to the next search result do:
+""   <leader>n
+""
+"" To go to the previous search results do:
+""   <leader>p
+""
+"map <leader>cc :botright cope<cr>
+"map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+"map <leader>n :cn<cr>
+"map <leader>p :cp<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -225,7 +223,7 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 if (empty($TMUX))
-    hi default CocHighlightText  guibg=Grey ctermbg=Grey guifg=Black ctermfg=Black
+    hi default CocHighlightText  guibg=#FFEFAA ctermbg=167 guifg=Black ctermfg=Black
     hi default link CocHighlightRead  CocHighlightText
     hi default link CocHighlightWrite  CocHighlightText
     autocmd CursorHold * silent call CocActionAsync('highlight')
