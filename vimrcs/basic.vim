@@ -15,8 +15,8 @@ set guioptions-=r               "Hide right scrollbar"
 set guioptions-=L               "Hide left scrollbar"
 set guioptions-=b               "Hide bottom scrollbar"
 set cursorline                  
-set cursorcolumn                
-set langmenu=zh_CN.UTF-8        
+" set cursorcolumn                
+" set langmenu=zh_CN.UTF-8        
 
 " Prevent quitting vim
 cabbrev q <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'close' : 'q')<CR>
@@ -37,7 +37,9 @@ filetype indent on
 set autoread
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,gbk,latin1
 
 " Use Unix as the standard file type
 set fileformats=unix,dos,mac
@@ -151,9 +153,7 @@ syntax on
 
 " Enable dark background
 set background=dark
-
 set guifont=DankMono\ Nerd\ Font:h18
-
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
