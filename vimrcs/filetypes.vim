@@ -24,6 +24,42 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+""""""""""""""""""""""""""""""
+" => TypeScript section
+"""""""""""""""""""""""""""""""
+" autocmd BufEnter *.tsx set filetype=typescript
+au FileType typescript call TypeScriptFold()
+au FileType typescript setl fen
+au FileType typescript setl nocindent
+au FileType typescript setl nowrap
+
+au FileType typescript imap <c-t> $log();<esc>hi
+au FileType typescript imap <c-a> alert();<esc>hi
+
+au FileType typescript inoremap <buffer> $r return 
+au FileType typescript inoremap <buffer> $f // --- PH<esc>FP2xi
+
+au FileType typescript.tsx call TypeScriptFold()
+au FileType typescript.tsx setl fen
+au FileType typescript.tsx setl nocindent
+au FileType typescript.tsx setl nowrap
+
+au FileType typescript.tsx imap <c-t> $log();<esc>hi
+au FileType typescript.tsx imap <c-a> alert();<esc>hi
+
+au FileType typescript.tsx inoremap <buffer> $r return 
+au FileType typescript.tsx inoremap <buffer> $f // --- PH<esc>FP2xi
+
+function! TypeScriptFold() 
+    setl foldmethod=syntax
+    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+    function! FoldText()
+        return substitute(getline(v:foldstart), '{.*', '{...}', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
 
 """"""""""""""""""""""""""""""
 " => Python section

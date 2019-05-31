@@ -11,6 +11,7 @@ else
     let &t_EI = "\e[2 q"
 endif
 
+set showtabline=0               "Hide top tab bar" 
 set guioptions-=r               "Hide right scrollbar" 
 set guioptions-=L               "Hide left scrollbar"
 set guioptions-=b               "Hide bottom scrollbar"
@@ -152,7 +153,6 @@ set noswapfile
 syntax on 
 
 " Enable dark background
-set background=dark
 set guifont=DankMono\ Nerd\ Font:h18
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -210,8 +210,10 @@ endtry
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" delete marks on current line
+nnoremap <silent> dm :<c-u>call Delmarks()<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -276,4 +278,12 @@ function! VisualSelection(direction, extra_filter) range
 
     let @/ = l:pattern
     let @" = l:saved_reg
+endfunction
+function! Delmarks()
+    let l:m = join(filter(
+       \ map(range(char2nr('a'), char2nr('z')), 'nr2char(v:val)'),
+       \ 'line("''".v:val) == line(".")'))
+    if !empty(l:m)
+        exe 'delmarks' l:m
+    endif
 endfunction

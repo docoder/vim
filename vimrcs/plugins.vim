@@ -6,8 +6,11 @@
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'joshdick/onedark.vim' " Theme
+Plug 'morhetz/gruvbox' "Theme
 Plug 'sheerun/vim-polyglot' " Syntax highlight
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'w0rp/ale' " Asynchronous Lint
 " Plug 'scrooloose/nerdtree' " Tree explorer
@@ -47,17 +50,16 @@ call plug#end()
 
 
 """"""""""""""""""""""""""""""
-" => onedark
+" => Theme
 """"""""""""""""""""""""""""""
-
+syntax enable
+set background=dark
 if (empty($TMUX))
-    let g:onedark_terminal_italics = 1
+    let g:gruvbox_italic = 1
 endif
-
-let g:onedark_termcolors=16
-let g:airline_theme='onedark'
-syntax on
-colorscheme onedark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 " highlight Comment cterm=italic gui=italic
 " highlight Conditional cterm=italic gui=italic
 " highlight Identifier cterm=italic gui=italic
@@ -206,12 +208,12 @@ endfunction
 
 
 " Highlight symbol under cursor on CursorHold
-" if (empty($TMUX))
-"     hi default CocHighlightText  guibg=#FFEFAA ctermbg=167 guifg=Black ctermfg=Black
-"     hi default link CocHighlightRead  CocHighlightText
-"     hi default link CocHighlightWrite  CocHighlightText
-"     autocmd CursorHold * silent call CocActionAsync('highlight')
-" endif
+if (empty($TMUX))
+    hi default CocHighlightText  guibg=#FFEFAA ctermbg=167 guifg=Black ctermfg=Black
+    hi default link CocHighlightRead  CocHighlightText
+    hi default link CocHighlightWrite  CocHighlightText
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -243,19 +245,7 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
-
-" Using CocList
+" using coclist
 " Show all diagnostics
 nnoremap <silent> <space>A  :<C-u>CocList diagnostics<cr>
 " Manage extensions
@@ -310,6 +300,10 @@ let g:ale_set_highlights = 0
 " Only run linting when saving the file
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_open_list = 1
+let g:ale_list_vertical = 1
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 """"""""""""""""""""""""""""""
 " => ctrlp
