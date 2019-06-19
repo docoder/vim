@@ -9,8 +9,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox' "Theme
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'vim-airline/vim-airline' " Status bar
 Plug 'w0rp/ale' " Asynchronous Lint
 " Plug 'scrooloose/nerdtree' " Tree explorer
@@ -208,12 +208,12 @@ endfunction
 
 
 " Highlight symbol under cursor on CursorHold
-if (empty($TMUX))
-    hi default CocHighlightText  guibg=#FFEFAA ctermbg=167 guifg=Black ctermfg=Black
-    hi default link CocHighlightRead  CocHighlightText
-    hi default link CocHighlightWrite  CocHighlightText
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-endif
+" if (empty($TMUX))
+"     hi default CocHighlightText  guibg=#FFEFAA ctermbg=167 guifg=Black ctermfg=Black
+"     hi default link CocHighlightRead  CocHighlightText
+"     hi default link CocHighlightWrite  CocHighlightText
+"     autocmd CursorHold * silent call CocActionAsync('highlight')
+" endif
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -306,6 +306,11 @@ nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
 
 """"""""""""""""""""""""""""""
+" => vim-polyglot
+"""""""""""""""""""""""""""""
+" This line prevents polyglot from loading markdown packages.
+let g:polyglot_disabled = ['md', 'markdown']
+""""""""""""""""""""""""""""""
 " => ctrlp
 """"""""""""""""""""""""""""""
 
@@ -323,7 +328,9 @@ let g:mkdp_auto_start = 1
 """"""""""""""""""""""""""""""
 " => vim-markdown 
 """"""""""""""""""""""""""""""
-let vim_markdown_folding_disabled = 1
+" let vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_fenced_languages = ['html', 'css', 'scss', 'sql', 'javascript=cs', 'python', 'bash=sh', 'c', 'typescript=ts']
 
 """"""""""""""""""""""""""""""
 " => indentLine
@@ -377,3 +384,13 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 nnoremap <silent> <leader>ys :YRShow<CR>
 nnoremap <silent> <leader>yc :YRClear<CR>
 let g:yankring_replace_n_pkey = ''
+
+""""""""""""""""""""""""""""""
+"=> Import Cost
+""""""""""""""""""""""""""""""
+" augroup import_cost_auto_run
+"   autocmd!
+"   autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
+"   autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
+"   autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
+" augroup END
